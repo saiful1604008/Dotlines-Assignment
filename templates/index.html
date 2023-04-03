@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload File</title>
+
+    <script>
+
+        function validateFileFormat(){
+            const fileInput = document.querySelector('input[type="file"]');
+            const allowedExtension = ['xlsx', 'xls'];
+            const fileExtension = fileInput.value.split('.').pop().toLowerCase();
+
+            if(!allowedExtension.includes(fileExtension)) {
+                alert('Unsupported File Format, Use Excel File Format Please..');
+                return false;
+            }
+
+            return true;
+
+        }
+
+    </script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 50px;
+            border: 2px solid #8d107c;
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+        input[type="file"] {
+            margin: 10px;
+        }
+
+        input[type="submit"] {
+            padding: 10px 20px;
+            background-color: #d8accb;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #e026d1;
+        }
+
+        h2 {
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        p {
+            margin: 10px 0;
+            text-align: center;
+        }
+
+        .show-data-btn {
+            margin: 20px auto 0;
+            padding: 10px 20px;
+            background-color: #431cf0;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            }
+
+    </style>
+
+</head>
+<body>
+    <h1>Upload File</h1>
+    <form method="POST" enctype="multipart/form-data" onsubmit="return validateFileFormat()"> 
+        <input type="file" name="file">
+        <input type="submit" value="Submit">
+    </form>
+
+    <a href="{{ url_for('showData') }}"><button class="show-data-btn">Show Data</button></a>
+
+    {% if summary %}
+        <h2>Summary Report</h2>
+        <p>Total data: {{ summary.total_data }}</p>
+        <p>Total successfully uploaded data: {{ summary.total_successfully_uploaded_data }}</p>
+        <p>Total duplicate data: {{ summary.total_duplicate_data }}</p>
+        <p>Total invalid data: {{ summary.total_invalid_data }}</p>
+        <p>Total incomplete data: {{ summary.total_incomplete_data }}</p>
+    {% endif %}
+
+</body>
+</html>
