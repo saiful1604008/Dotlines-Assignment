@@ -12,8 +12,8 @@ Here Performed the following task --
 Environment Setup for Flask App:
 
 1. Create a virtual environment using the following command - 
-   py -3 -m venv .venv
-  .venv\Scripts\activate
+   a) py -3 -m venv .venv
+   b) .venv\Scripts\activate
   
 2. Install flask using : python -m pip install flask
 3. Setup Mysql database and connect it with flask and use the following command to install Mysql in flask : pip install flask-mysqldb
