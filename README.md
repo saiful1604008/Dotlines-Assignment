@@ -33,8 +33,8 @@ uploaded excel file looks like
 
 After successful validation the summary report shows like below 
 
+![summ](https://user-images.githubusercontent.com/88210205/229897168-d5972378-145e-4827-ae2c-cba755ca73e2.PNG)
 
-![2nd](https://user-images.githubusercontent.com/88210205/229893142-588dd027-ecba-4e16-981d-a0b78400a682.PNG)
 
 
 ![5](https://user-images.githubusercontent.com/88210205/229893207-6b5141c2-6bb8-4ec1-b1b1-149b4f58d0b3.PNG)
