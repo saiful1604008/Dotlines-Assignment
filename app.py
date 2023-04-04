@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, jsonify
 import os
 import mysql.connector
 from openpyxl import load_workbook
@@ -117,7 +117,24 @@ def showData():
     mycursor.execute("SELECT * FROM new_table")
     data = mycursor.fetchall()
     return render_template('data.html', data=data)
-       
+
+
+
+@app.route('/showData', methods=['GET', 'POST'])
+def searchData():
+    text = request.form.get("text")
+    print(text)
+    mycursor= mydb.cursor()
+    mycursor.execute("SELECT * FROM new_table WHERE Name LIKE '{}%' ".format(text))
+    results = mycursor.fetchall()
+    print(results)
+    mycursor.close()
+    # mydb.close()
+
+    return jsonify(results)
+
+
+
 
 
 if __name__ == "__main__":

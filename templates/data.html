@@ -5,32 +5,131 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Data</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+      <style>
+        body{
+          padding-top: 50px;
+          padding-bottom: 50px;
+        }
+
+        table {
+          margin: 0 auto;
+          text-align: center;
+          border-collapse: collapse;
+          width: 80%;
+          max-width: 800px;
+          font-size: 1.2em;
+        }
+
+        th, td {
+          padding: 10px;
+          border: 1px solid #0e0d0d;
+        }
+
+
+        th {
+          background-color: antiquewhite;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        
+        @media only screen and (max-width: 600px) {
+          table {
+            width: 100%;
+            font-size: 1em;
+          }
+
+        th, td {
+          padding: 5px;
+          }
+        }
+
+        #search{
+        display: block;
+        margin: 0 auto;
+        padding: 10px 20px;
+        margin-bottom: 20px;
+        border-radius: 20px;
+        border: 2px solid #ccc;
+        box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.1);
+        transition: all 0.3s ease;
+      }
+
+      #search:focus {
+        outline: none;
+        border: 2px solid #6f42c1;
+        box-shadow: 0px 0px 5px 0px rgba(111,66,193,0.5);
+      }
+
+
+      </style>
 </head>
 <body>
-    <h1>Data</h1>
+    <h1>User Details</h1>
+    <input type="text" id="search" placeholder="Search by Name">
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Gmail</th>
-      <th>Phone Number</th>
-      <th>Gender</th>
-      <th>Address</th>
-    </tr>
-  </thead>
-  <tbody>
-    {% for row in data %}
-    <tr>
-      <td>{{ row[1] }}</td>
-      <td>{{ row[2] }}</td>
-      <td>{{ row[3] }}</td>
-      <td>{{ row[4] }}</td>
-      <td>{{ row[5] }}</td>
-    </tr>
-    {% endfor %}
-  </tbody>
-</table>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Gmail</th>
+          <th>Phone Number</th>
+          <th>Gender</th>
+          <th>Address</th>
+        </tr>
+      </thead>
+      <tbody id = "datalist">
+        {% for row in data %}
+        <tr>
+          <td>{{ row[1] }}</td>
+          <td>{{ row[2] }}</td>
+          <td>{{ row[3] }}</td>
+          <td>{{ row[4] }}</td>
+          <td>{{ row[5] }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
 
 </body>
+
+
+<script>
+
+  $(document).ready(function() {
+    $("#search").on("input", function(e) {
+        $('#datalist').empty();
+        if($('#search').val().len != 0){
+          $.ajax({
+            method: "post",
+            url: "/showData",
+            data: {text:$('#search').val()},
+            success: function(response){
+              console.log(response);
+              var info = "";
+              $.each(response, function(i, item){
+                info += "<tr>";
+                info += "<td>" + item[1] + "</td>";
+                info += "<td>" + item[2] + "</td>";
+                info += "<td>" + item[3] + "</td>";
+                info += "<td>" + item[4] + "</td>";
+                info += "<td>" + item[5] + "</td>";
+                info += "</tr>";
+
+              });
+                
+              $("#datalist").html(info);
+
+            }           
+          });
+        }     
+      });
+    });
+
+  </script>
 </html>
