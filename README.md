@@ -25,7 +25,15 @@ To stop flask app use CTRL + C
 Some screenshot what exactly the application looks like - 
 
 ![1st](https://user-images.githubusercontent.com/88210205/229893084-55ac9e38-705f-4de3-907d-59f5a481ee91.PNG)
+
+
 ![2nd](https://user-images.githubusercontent.com/88210205/229893142-588dd027-ecba-4e16-981d-a0b78400a682.PNG)
+
+
 ![5](https://user-images.githubusercontent.com/88210205/229893207-6b5141c2-6bb8-4ec1-b1b1-149b4f58d0b3.PNG)
+
+
 ![Screenshot (20)](https://user-images.githubusercontent.com/88210205/229893290-b7d0b160-b7c4-448e-aa17-e600b841ee50.png)
+
+
 ![7](https://user-images.githubusercontent.com/88210205/229893376-38d97356-d670-4efb-a638-329025ee3e01.png)
