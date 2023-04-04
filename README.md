@@ -18,8 +18,7 @@ Environment Setup for Flask App:
 2. Install flask using : python -m pip install flask
 3. Setup Mysql database and connect it with flask and use the following command to install Mysql in flask : pip install flask-mysqldb
 
-To run the flask app use the following command in the terminal : python -m flask run 
-To stop flask app use CTRL + C
+To run the flask app use the following command in the terminal : python -m flask run & to stop flask app use CTRL + C
 
 
 Some screenshot what exactly the application looks like - 
