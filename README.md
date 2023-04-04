@@ -23,6 +23,9 @@ To run the flask app use the following command in the terminal : python -m flask
 
 Some screenshot what exactly the application looks like - 
 
+![e](https://user-images.githubusercontent.com/88210205/229894881-b471debc-7bc7-4585-b3d2-55b904bbab41.PNG)
+
+
 ![1st](https://user-images.githubusercontent.com/88210205/229893084-55ac9e38-705f-4de3-907d-59f5a481ee91.PNG)
 
 
