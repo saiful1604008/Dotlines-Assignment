@@ -31,6 +31,9 @@ uploaded excel file looks like
 ![1st](https://user-images.githubusercontent.com/88210205/229893084-55ac9e38-705f-4de3-907d-59f5a481ee91.PNG)
 
 
+After successful validation the summary report shows like below 
+
+
 ![2nd](https://user-images.githubusercontent.com/88210205/229893142-588dd027-ecba-4e16-981d-a0b78400a682.PNG)
 
 
